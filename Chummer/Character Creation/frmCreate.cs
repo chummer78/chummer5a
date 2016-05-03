@@ -9129,7 +9129,7 @@ namespace Chummer
 
 			bool blnWeaponMount = false;
 
-			if (objMod.Tags.InnerXml != null)
+			if (objMod.Tags != null)
 			{
 				foreach (XmlNode node in objMod.Tags.ChildNodes)
 				{
