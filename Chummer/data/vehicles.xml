@@ -6029,6 +6029,9 @@
 			<id>ebedb0c7-64ff-4817-8fb3-6a5fc9b3086f</id>
 			<name>Weapon Mount Type (Light)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mount</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>1</slots>
 			<weaponmountcategories>Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Melee</weaponmountcategories>
@@ -6041,6 +6044,9 @@
 			<id>86741661-11c2-4781-b365-b02dbb9fd7c0</id>
 			<name>Weapon Mount Type (Standard)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mount</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>2</slots>
 			<weaponmountcategories>Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Assault Rifles,Shotguns,Machine Guns,Flamethrowers,Sporting Rifles</weaponmountcategories>
@@ -6053,6 +6059,9 @@
 			<id>4eecb2ee-ad33-4bc2-b8b3-d35e0df40836</id>
 			<name>Weapon Mount Type (Heavy)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mount</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>4</slots>
 			<weaponmountcategories>Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Assault Rifles,Shotguns,Machine Guns,Cannons,Grenade Launchers,Missile Launchers,Laser Weapons,Light Machine Guns,Medium Machine Guns,Heavy Machine Guns,Assault Cannons,Flamethrowers,Sporting Rifles</weaponmountcategories>
@@ -6065,6 +6074,9 @@
 			<id>906c1b0a-4c53-4f11-9b1b-6bdac3caa9e3</id>
 			<name>Weapon Mount Visibility (External)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>0</slots>
 			<avail>0</avail>
@@ -6076,9 +6088,12 @@
 			<id>4387e71e-d359-468d-b0c7-d41c9ec6404f</id>
 			<name>Weapon Mount Visibility (Internal)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>2</slots>
-			<avail>0</avail>
+			<avail>+2</avail>
 			<cost>1500</cost>
 			<source>R5</source>
 			<page>163</page>
@@ -6087,9 +6102,12 @@
 			<id>50e84b26-a09c-4f90-8b7a-7974a9133311</id>
 			<name>Weapon Mount Visibility (Concealed)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>4</slots>
-			<avail>0</avail>
+			<avail>+4</avail>
 			<cost>4000</cost>
 			<source>R5</source>
 			<page>163</page>
@@ -6098,6 +6116,9 @@
 			<id>ec031f5b-8b2c-4289-a4f0-1cce29f36f3e</id>
 			<name>Weapon Mount Flexibility (Fixed)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>0</slots>
 			<avail>0</avail>
@@ -6109,9 +6130,12 @@
 			<id>cfa4d3c5-d970-490a-81fd-5617f96f6556</id>
 			<name>Weapon Mount Flexibility (Flexible)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>1</slots>
-			<avail>0</avail>
+			<avail>+2</avail>
 			<cost>2000</cost>
 			<source>R5</source>
 			<page>163</page>
@@ -6120,9 +6144,12 @@
 			<id>886f7678-d957-4804-b0fe-01a8506b31ca</id>
 			<name>Weapon Mount Flexibility (Turret)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>2</slots>
-			<avail>0</avail>
+			<avail>+6</avail>
 			<cost>5000</cost>
 			<source>R5</source>
 			<page>163</page>
@@ -6131,6 +6158,9 @@
 			<id>1cd32dd6-3520-4ab5-a6d9-d5932f4b2188</id>
 			<name>Weapon Mount Control (Remote)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>0</slots>
 			<avail>0</avail>
@@ -6142,9 +6172,12 @@
 			<id>6e4ec837-1c16-4813-adc1-6009e410737a</id>
 			<name>Weapon Mount Control (Manual)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>1</slots>
-			<avail>0</avail>
+			<avail>+1</avail>
 			<cost>500</cost>
 			<source>R5</source>
 			<page>163</page>
@@ -6153,9 +6186,12 @@
 			<id>8d988a80-45df-4656-80a6-98579ce44e43</id>
 			<name>Weapon Mount Control (Armored Manual)</name>
 			<category>Weapons</category>
+			<tags>
+				<tag>mountmod</tag>
+			</tags>
 			<rating>0</rating>
 			<slots>2</slots>
-			<avail>0</avail>
+			<avail>+4</avail>
 			<cost>1500</cost>
 			<source>R5</source>
 			<page>163</page>

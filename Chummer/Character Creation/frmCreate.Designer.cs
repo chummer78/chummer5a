@@ -938,6 +938,10 @@ namespace Chummer
 			this.tsMetamagicNotes = new System.Windows.Forms.ToolStripMenuItem();
 			this.cmsTechnique = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.tsAddTechniqueNotes = new System.Windows.Forms.ToolStripMenuItem();
+			this.cmsVehicleWeaponMount = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.tsVehicleMountAddModification = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsVehicleMountAddWeapon = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsVehicleMountAddNotes = new System.Windows.Forms.ToolStripMenuItem();
 			this.StatusStrip.SuspendLayout();
 			this.cmsMartialArts.SuspendLayout();
 			this.cmsSpellButton.SuspendLayout();
@@ -1052,6 +1056,7 @@ namespace Chummer
 			this.cmsInitiationNotes.SuspendLayout();
 			this.cmsMetamagic.SuspendLayout();
 			this.cmsTechnique.SuspendLayout();
+			this.cmsVehicleWeaponMount.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// StatusStrip
@@ -10855,6 +10860,44 @@ namespace Chummer
 			this.tsAddTechniqueNotes.Text = "&Notes";
 			this.tsAddTechniqueNotes.Click += new System.EventHandler(this.tsAddTechniqueNotes_Click);
 			// 
+			// cmsVehicleWeaponMount
+			// 
+			this.cmsVehicleWeaponMount.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsVehicleMountAddModification,
+            this.tsVehicleMountAddWeapon,
+            this.tsVehicleMountAddNotes});
+			this.cmsVehicleWeaponMount.Name = "cmsWeapon";
+			this.cmsVehicleWeaponMount.Size = new System.Drawing.Size(207, 92);
+			// 
+			// tsVehicleMountAddModification
+			// 
+			this.tsVehicleMountAddModification.Image = global::Chummer.Properties.Resources.car_add;
+			this.tsVehicleMountAddModification.Name = "tsVehicleMountAddModification";
+			this.tsVehicleMountAddModification.Size = new System.Drawing.Size(206, 22);
+			this.tsVehicleMountAddModification.Tag = "Menu_AddMountModification";
+			this.tsVehicleMountAddModification.Text = "Add M&ount Modification";
+			this.tsVehicleMountAddModification.Click += new System.EventHandler(this.tsVehicleMountAddModification_Click);
+
+			// 
+			// tsVehicleMountAddWeapon
+			// 
+			this.tsVehicleMountAddWeapon.Image = global::Chummer.Properties.Resources.award_star_add;
+			this.tsVehicleMountAddWeapon.Name = "tsVehicleMountAddWeapon";
+			this.tsVehicleMountAddWeapon.Size = new System.Drawing.Size(206, 22);
+			this.tsVehicleMountAddWeapon.Tag = "Menu_Weapons";
+			this.tsVehicleMountAddWeapon.Text = "Add &Weapon";
+			this.tsVehicleMountAddWeapon.Click += new System.EventHandler(this.tsVehicleAddWeaponWeapon_Click);
+			// 
+			// tsVehicleMountAddNotes
+			// 
+			this.tsVehicleMountAddNotes.Image = global::Chummer.Properties.Resources.note_edit;
+			this.tsVehicleMountAddNotes.Name = "tsVehicleMountAddNotes";
+			this.tsVehicleMountAddNotes.Size = new System.Drawing.Size(206, 22);
+			this.tsVehicleMountAddNotes.Tag = "Menu_Notes";
+			this.tsVehicleMountAddNotes.Text = "&Notes";
+			this.tsVehicleMountAddNotes.Click += new System.EventHandler(this.tsVehicleNotes_Click);
+
+			// 
 			// frmCreate
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -11016,6 +11059,7 @@ namespace Chummer
 			this.cmsInitiationNotes.ResumeLayout(false);
 			this.cmsMetamagic.ResumeLayout(false);
 			this.cmsTechnique.ResumeLayout(false);
+			this.cmsVehicleWeaponMount.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -11907,6 +11951,10 @@ namespace Chummer
 		private System.Windows.Forms.Label lblVehicleElectromagnetic;
 		private System.Windows.Forms.Label lblVehicleDroneModSlots;
 		private System.Windows.Forms.Label lblVehicleDroneModSlotsLabel;
+		private System.Windows.Forms.ContextMenuStrip cmsVehicleWeaponMount;
+		private System.Windows.Forms.ToolStripMenuItem tsVehicleMountAddModification;
+		private System.Windows.Forms.ToolStripMenuItem tsVehicleMountAddWeapon;
+		private System.Windows.Forms.ToolStripMenuItem tsVehicleMountAddNotes;
 	}
 }
 

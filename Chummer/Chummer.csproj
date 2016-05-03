@@ -245,6 +245,12 @@
       <DependentUpon>language.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Selection Forms\frmSelectVehicleMountMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Selection Forms\frmSelectVehicleMountMod.Designer.cs">
+      <DependentUpon>frmSelectVehicleMountMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Shared\CharacterShared.cs" />
     <Compile Include="Utilities\frmDiceHits.cs">
       <SubType>Form</SubType>
@@ -775,6 +781,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdate.resx">
       <DependentUpon>frmUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selection Forms\frmSelectVehicleMountMod.resx">
+      <DependentUpon>frmSelectVehicleMountMod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilities\frmDiceHits.resx">
       <DependentUpon>frmDiceHits.cs</DependentUpon>

@@ -9031,7 +9031,48 @@ namespace Chummer
                 tsGearAddAsPlugin_Click(sender, e);
         }
 
-        private void tsVehicleAddMod_Click(object sender, EventArgs e)
+		private void tsVehicleMountAddModification_Click(object sender, EventArgs e)
+		{
+			VehicleMod objFoundMod = new VehicleMod(_objCharacter);
+			Vehicle objFoundVehicle = new Vehicle(_objCharacter);
+
+			objFoundMod = _objFunctions.FindVehicleMod(treVehicles.SelectedNode.Tag.ToString(), _objCharacter.Vehicles, out objFoundVehicle);
+
+			frmSelectVehicleMountMod frmPickVehicleMountMod = new frmSelectVehicleMountMod(_objCharacter);
+			// Set the Vehicle properties for the window.
+			//frmPickVehicleMountMod.SelectedVehicle = objMod;
+
+			frmPickVehicleMountMod.ShowDialog(this);
+
+			// Make sure the dialogue window was not canceled.
+			if (frmPickVehicleMountMod.DialogResult == DialogResult.Cancel)
+				return;
+
+			// Open the Vehicles XML file and locate the selected piece.
+			XmlDocument objXmlDocument = XmlManager.Instance.Load("vehicles.xml");
+
+			XmlNode objXmlMod = objXmlDocument.SelectSingleNode("/chummer/mods/mod[name = \"" + frmPickVehicleMountMod.SelectedMod + "\"]");
+
+			TreeNode objNode = new TreeNode();
+			VehicleMod objMod = new VehicleMod(_objCharacter);
+			objMod.Create(objXmlMod, objNode, frmPickVehicleMountMod.SelectedRating);
+
+			objFoundMod.Mods.Add(objMod);
+
+				objNode.ContextMenuStrip = cmsVehicle;
+			treVehicles.SelectedNode.Nodes.Add(objNode);
+			treVehicles.SelectedNode.Expand();
+			RefreshSelectedVehicle();
+			
+			_blnIsDirty = true;
+			UpdateWindowTitle();
+
+			if (frmPickVehicleMountMod.AddAgain)
+				tsVehicleAddMod_Click(sender, e);
+		}
+
+
+		private void tsVehicleAddMod_Click(object sender, EventArgs e)
         {
             // Make sure a parent items is selected, then open the Select Vehicle Mod window.
             try
@@ -9048,8 +9089,10 @@ namespace Chummer
                 return;
             }
 
-            if (treVehicles.SelectedNode.Level > 1)
-                treVehicles.SelectedNode = treVehicles.SelectedNode.Parent;
+			if (treVehicles.SelectedNode.Level > 1)
+			{
+				treVehicles.SelectedNode = treVehicles.SelectedNode.Parent;
+			}
 
             Vehicle objSelectedVehicle = _objFunctions.FindVehicle(treVehicles.SelectedNode.Tag.ToString(), _objCharacter.Vehicles);
 
@@ -9084,8 +9127,21 @@ namespace Chummer
 
             objSelectedVehicle.Mods.Add(objMod);
 
-            objNode.ContextMenuStrip = cmsVehicle;
-            treVehicles.SelectedNode.Nodes.Add(objNode);
+			bool blnWeaponMount = false;
+
+			if (objMod.Tags.InnerXml != null)
+			{
+				foreach (XmlNode node in objMod.Tags.ChildNodes)
+				{
+					if (node.InnerText == "mount")
+						blnWeaponMount = true;
+				}
+			}
+			if(blnWeaponMount)
+				objNode.ContextMenuStrip = cmsVehicleWeaponMount;
+			else
+				objNode.ContextMenuStrip = cmsVehicle;
+			treVehicles.SelectedNode.Nodes.Add(objNode);
             treVehicles.SelectedNode.Expand();
             RefreshSelectedVehicle();
 

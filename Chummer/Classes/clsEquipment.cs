@@ -12679,6 +12679,7 @@ namespace Chummer
 		private string _strCost = "";
 		private string _strAvail = "";
 		private XmlNode _nodBonus;
+		private XmlNode _nodTags;
 		private string _strSource = "";
 		private string _strPage = "";
 		private bool _blnIncludeInVehicle = false;
@@ -12689,6 +12690,7 @@ namespace Chummer
 		private int _intSignal = 0;
 		private int _intPilot = 0;
 		private List<Weapon> _lstVehicleWeapons = new List<Weapon>();
+		private List<VehicleMod> _lstVehicleMods = new List<VehicleMod>();
 		private string _strNotes = "";
 		private string _strSubsystems = "";
 		private List<Cyberware> _lstCyberware = new List<Cyberware>();
@@ -12789,6 +12791,8 @@ namespace Chummer
 			_strPage = objXmlMod["page"].InnerText;
 			if (objXmlMod["bonus"] != null)
 				_nodBonus = objXmlMod["bonus"];
+			if (objXmlMod["tags"] != null)
+				_nodTags = objXmlMod["tags"];
 
 			if (GlobalOptions.Instance.Language != "en-us")
 			{
@@ -12846,6 +12850,10 @@ namespace Chummer
 			foreach (Weapon objWeapon in _lstVehicleWeapons)
 				objWeapon.Save(objWriter);
 			objWriter.WriteEndElement();
+			objWriter.WriteStartElement("mods");
+			foreach (VehicleMod objMod in _lstVehicleMods)
+				objMod.Save(objWriter);
+			objWriter.WriteEndElement();
 			if (_lstCyberware.Count > 0)
 			{
 				objWriter.WriteStartElement("cyberwares");
@@ -12855,6 +12863,8 @@ namespace Chummer
 			}
 			if (_nodBonus != null)
 				objWriter.WriteRaw(_nodBonus.OuterXml);
+			if (_nodTags != null)
+				objWriter.WriteRaw(_nodTags.OuterXml);
 			objWriter.WriteElementString("notes", _strNotes);
 			objWriter.WriteElementString("discountedcost", DiscountCost.ToString());
 			objWriter.WriteEndElement();
@@ -12897,6 +12907,16 @@ namespace Chummer
 					_lstVehicleWeapons.Add(objWeapon);
 				}
 			}
+			if (objNode.InnerXml.Contains("<mods>"))
+			{
+				XmlNodeList nodChildren = objNode.SelectNodes("mods/mod");
+				foreach (XmlNode nodChild in nodChildren)
+				{
+					VehicleMod objMod = new VehicleMod(_objCharacter);
+					objMod.Load(nodChild, blnCopy);
+					_lstVehicleMods.Add(objMod);
+				}
+			}
 			if (objNode.InnerXml.Contains("<cyberwares>"))
 			{
 				XmlNodeList nodChildren = objNode.SelectNodes("cyberwares/cyberware");
@@ -12911,6 +12931,13 @@ namespace Chummer
 			try
 			{
 				_nodBonus = objNode["bonus"];
+			}
+			catch
+			{
+			}
+			try
+			{
+				_nodTags = objNode["tags"];
 			}
 			catch
 			{
@@ -12967,6 +12994,10 @@ namespace Chummer
 			foreach (Weapon objWeapon in _lstVehicleWeapons)
 				objWeapon.Print(objWriter);
 			objWriter.WriteEndElement();
+			objWriter.WriteStartElement("mods");
+			foreach (VehicleMod objMod in _lstVehicleMods)
+				objMod.Print(objWriter);
+			objWriter.WriteEndElement();
 			objWriter.WriteStartElement("cyberwares");
 			foreach (Cyberware objCyberware in _lstCyberware)
 				objCyberware.Print(objWriter);
@@ -12986,6 +13017,13 @@ namespace Chummer
 			get
 			{
 				return _lstVehicleWeapons;
+			}
+		}
+		public List<VehicleMod> Mods
+		{
+			get
+			{
+				return _lstVehicleMods;
 			}
 		}
 
@@ -13287,6 +13325,21 @@ namespace Chummer
 		}
 
 		/// <summary>
+		/// Tags node.
+		/// </summary>
+		public XmlNode Tags
+		{
+			get
+			{
+				return _nodTags;
+			}
+			set
+			{
+				_nodTags = value;
+			}
+		}
+
+		/// <summary>
 		/// Whether or not the Mod included with the Vehicle by default.
 		/// </summary>
 		public bool IncludedInVehicle
@@ -13503,6 +13556,29 @@ namespace Chummer
 				else
 					intAvail = Convert.ToInt32(strCalculated);
 
+				foreach (VehicleMod objMod in _lstVehicleMods)
+				{
+					if (!objMod.IncludedInVehicle)
+					{
+						if (objMod.TotalAvail.StartsWith("+") || objMod.TotalAvail.StartsWith("-"))
+						{
+							int intModAvail = 0;
+							string strModAvail = "";
+
+							strModAvail = objMod.TotalAvail;
+							if (strModAvail.EndsWith("F"))
+								strAvailText = "F";
+							else if(strModAvail.EndsWith("R") && strAvailText != "F")
+								strAvailText = "R";
+							if (strModAvail.EndsWith("F") || strModAvail.EndsWith("R"))
+								intModAvail = Convert.ToInt32(strModAvail.Substring(0, strModAvail.Length - 1));
+							else
+								intModAvail = Convert.ToInt32(strModAvail);
+							intAvail += intModAvail;
+						}
+					}
+				}
+
 				strReturn = intAvail.ToString() + strAvailText;
 
 				// Translate the Avail string.
@@ -13554,6 +13630,12 @@ namespace Chummer
 				{
 					intReturn += objWeapon.TotalCost;
 				}
+
+				foreach (VehicleMod objMod in _lstVehicleMods)
+				{
+					intReturn += objMod.TotalCost;
+				}
+
 
 				// Retrieve the price of Cyberware.
 				foreach (Cyberware objCyberware in _lstCyberware)
