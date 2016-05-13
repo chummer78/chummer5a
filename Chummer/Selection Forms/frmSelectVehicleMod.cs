@@ -375,31 +375,6 @@ namespace Chummer
 			List<ListItem> lstMods = new List<ListItem>();
 			foreach (XmlNode objXmlMod in objXmlModList)
 			{
-				blnAdd = true;
-				/*
-				if (objXmlMod["response"] != null)
-				{
-					if (Convert.ToInt32(objXmlMod["response"].InnerText) > _intMaxResponse || Convert.ToInt32(objXmlMod["response"].InnerText) <= _objVehicle.DeviceRating)
-						blnAdd = false;
-				}
-				if (objXmlMod["system"] != null)
-				{
-					if (Convert.ToInt32(objXmlMod["system"].InnerText) <= _objVehicle.DeviceRating)
-						blnAdd = false;
-				}
-				if (objXmlMod["firewall"] != null)
-				{
-					if (Convert.ToInt32(objXmlMod["firewall"].InnerText) <= _objVehicle.DeviceRating)
-						blnAdd = false;
-				}
-				if (objXmlMod["signal"] != null)
-				{
-					if (Convert.ToInt32(objXmlMod["signal"].InnerText) > _intMaxSignal || Convert.ToInt32(objXmlMod["signal"].InnerText) <= _objVehicle.DeviceRating)
-						blnAdd = false;
-				}
-				*/
-				if (blnAdd)
-				{
 					ListItem objItem = new ListItem();
 					objItem.Value = objXmlMod["name"].InnerText;
 					if (objXmlMod["translate"] != null)
@@ -407,7 +382,6 @@ namespace Chummer
 					else
 						objItem.Name = objXmlMod["name"].InnerText;
 					lstMods.Add(objItem);
-				}
 			}
 			SortListItem objSort = new SortListItem();
 			lstMods.Sort(objSort.Compare);
@@ -565,7 +539,8 @@ namespace Chummer
 					nudRating.Maximum = _objVehicle.Body;
 					nudRating.Minimum = 1;
 					nudRating.Enabled = true;
-					lblRatingLabel.Text = LanguageManager.Instance.GetString("Label_Body");
+					lblRatingLabel.Text = LanguageManager.Instance.GetString("Label_Rating");
+					//lblRatingLabel.Text = LanguageManager.Instance.GetString("Label_Body");
 				}
 				//Used for Metahuman Adjustments.
 				else if (objXmlMod["rating"].InnerText.ToLower() == "seats")
@@ -593,6 +568,23 @@ namespace Chummer
 					}
 				}
 
+				// Category
+				if (GlobalOptions.Instance.Language != "en-us")
+				{
+					XmlNode objXmlCategory = _objXmlDocument.SelectSingleNode("/chummer/modcategories/category[. = \"" + objXmlMod["category"].InnerText + "\"]");
+					if (objXmlCategory != null)
+					{
+						if (objXmlCategory.Attributes["translate"] != null)
+							lblCategory.Text = objXmlCategory.Attributes["translate"].InnerText;
+						else
+							lblCategory.Text = objXmlMod["category"].InnerText;
+					}
+					else
+						lblCategory.Text = objXmlMod["category"].InnerText;
+				}
+				else
+					lblCategory.Text = objXmlMod["category"].InnerText;
+
 				// Slots.
 
 				string strSlots = "";
@@ -608,58 +600,8 @@ namespace Chummer
 				strSlots = ReplaceStrings(strSlots);
 				XPathExpression xprSlots = nav.Compile(strSlots);
 				lblSlots.Text = nav.Evaluate(xprSlots).ToString();
-
-				try
-				{
-					if (objXmlMod["category"].InnerText == "Weapon Mod")
-						lblCategory.Text = LanguageManager.Instance.GetString("String_WeaponModification");
-					else
-					{
-						// Translate the Category if possible.
-						if (GlobalOptions.Instance.Language != "en-us")
-						{
-							XmlNode objXmlCategory = _objXmlDocument.SelectSingleNode("/chummer/modcategories/category[. = \"" + objXmlMod["category"].InnerText + "\"]");
-							if (objXmlCategory != null)
-							{
-								if (objXmlCategory.Attributes["translate"] != null)
-									lblCategory.Text = objXmlCategory.Attributes["translate"].InnerText;
-								else
-									lblCategory.Text = objXmlMod["category"].InnerText;
-							}
-							else
-								lblCategory.Text = objXmlMod["category"].InnerText;
-						}
-						else
-							lblCategory.Text = objXmlMod["category"].InnerText;
-					}
-				}
-				catch
-				{
-					lblCategory.Text = LanguageManager.Instance.GetString("String_WeaponModification");
-				}
-
-				if (objXmlMod["limit"] != null)
-				{
-					// Translate the Limit if possible.
-					if (GlobalOptions.Instance.Language != "en-us")
-					{
-						XmlNode objXmlLimit = _objXmlDocument.SelectSingleNode("/chummer/limits/limit[. = \"" + objXmlMod["limit"].InnerText + "\"]");
-						if (objXmlLimit != null)
-						{
-							if (objXmlLimit.Attributes["translate"] != null)
-								lblLimit.Text = " (" + objXmlLimit.Attributes["translate"].InnerText + ")";
-							else
-								lblLimit.Text = " (" + objXmlMod["limit"].InnerText + ")";
-						}
-						else
-							lblLimit.Text = " (" + objXmlMod["limit"].InnerText + ")";
-					}
-					else
-						lblLimit.Text = " (" + objXmlMod["limit"].InnerText + ")";
-				}
-				else
-					lblLimit.Text = "";
-
+				lblSlots.Visible = true;
+				
 				string strBook = _objCharacter.Options.LanguageBookShort(objXmlMod["source"].InnerText);
 				string strPage = objXmlMod["page"].InnerText;
 				if (objXmlMod["altpage"] != null)

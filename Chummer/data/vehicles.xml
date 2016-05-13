@@ -5349,7 +5349,7 @@
 			<id>bac2fcca-1edd-4814-ba50-31d63f031d4e</id>
 			<name>Racing Tires</name>
 			<category>All</category>
-			<rating>50</rating>
+			<rating>qty</rating>
 			<slots>0</slots>
 			<avail>6</avail>
 			<cost>Rating * 250</cost>
@@ -5360,7 +5360,7 @@
 			<id>aba3338c-0a54-4486-84a4-2e74524b63de</id>
 			<name>Run-Flat Tires</name>
 			<category>All</category>
-			<rating>50</rating>
+			<rating>qty</rating>
 			<slots>0</slots>
 			<avail>4</avail>
 			<cost>Rating * 250</cost>
