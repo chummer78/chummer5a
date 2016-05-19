@@ -5256,7 +5256,7 @@
 		<mod>
 			<id>079a5c61-aee6-4383-81b7-32540f7a0a0b</id>
 			<name>Weapon Mount</name>
-			<category>All</category>
+			<category></category>
 			<rating>0</rating>
 			<slots>0</slots>
 			<weaponmountcategories>Tasers,Holdouts,Light Pistols,Heavy Pistols,Assault Rifles,Sniper Rifles,Shotguns,Exotic Ranged Weapons,Flamethrowers,Special Weapons</weaponmountcategories>
@@ -6634,7 +6634,7 @@
 		<mod>
 			<id>356eee5f-1f2d-4ed8-8db1-d0989c69a755</id>
 			<name>Micro Weapon Mount (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>0</slots>
@@ -6646,7 +6646,7 @@
 		<mod>
 			<id>0e3966d0-ee43-4a66-a69e-8f9823434449</id>
 			<name>Mini Weapon Mount (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6659,7 +6659,7 @@
 		<mod>
 			<id>1a626185-b826-466c-aa73-32c02bae4bef</id>
 			<name>Gecko Grips (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6671,7 +6671,7 @@
 		<mod>
 			<id>898e20b2-00de-417d-8ee0-c7fc6f8bf251</id>
 			<name>Small Weapon Mount (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>2</slots>
@@ -6684,7 +6684,7 @@
 		<mod>
 			<id>47b3e2f9-78d5-4747-b587-858deb725139</id>
 			<name>Standard Weapon Mount (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>3</slots>
@@ -6697,7 +6697,7 @@
 		<mod>
 			<id>f367741c-f236-4f64-9975-667f74973bb8</id>
 			<name>Large Weapon Mount (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>4</slots>
@@ -6710,7 +6710,7 @@
 		<mod>
 			<id>ea8eadf6-3ada-4ee2-a6a8-545f68cd17e2</id>
 			<name>Huge Weapon Mount (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>5</slots>
@@ -6723,7 +6723,7 @@
 		<mod>
 			<id>4ac413b9-3a43-4771-b5db-c586c762781f</id>
 			<name>Heavy Weapon Mount (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>6</slots>
@@ -6735,7 +6735,7 @@
 		<mod>
 			<id>b5b9cd7e-dbb3-42e9-abcd-f805f6a4b10e</id>
 			<name>Realistic Features (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>4</rating>
 			<slots>0</slots>
@@ -6747,7 +6747,7 @@
 		<mod>
 			<id>f5fc8f70-f627-46d8-8a4f-ea5ef3f182de</id>
 			<name>Amphibious (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6759,7 +6759,7 @@
 		<mod>
 			<id>bec278ef-6841-4538-8000-65b3f96261d7</id>
 			<name>Submersible (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>2</slots>
@@ -6771,7 +6771,7 @@
 		<mod>
 			<id>1f723236-24f2-40d4-8dc0-617726004524</id>
 			<name>Assembly Time Improvement (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6783,7 +6783,7 @@
 		<mod>
 			<id>a7c9a0a4-bec5-4a01-a695-5b843e581123</id>
 			<name>Customized (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>0</slots>
@@ -6795,7 +6795,7 @@
 		<mod>
 			<id>af87f3e0-aca3-4459-9d40-1573c758d137</id>
 			<name>Drone Arm</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6812,7 +6812,7 @@
 		<mod>
 			<id>a51d3e74-3e94-493e-b477-fd30511853b1</id>
 			<name>Synthetic Drone Arm</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6829,7 +6829,7 @@
 		<mod>
 			<id>db9b3ae1-a2fd-4189-bf30-2c41ceeef810</id>
 			<name>Primitive Drone Arm</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6846,7 +6846,7 @@
 		<mod>
 			<id>7b3c14ae-d867-4316-86d1-2dc344ad6cb7</id>
 			<name>Drone Leg</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6863,7 +6863,7 @@
 		<mod>
 			<id>41117756-2827-47ef-94bf-117e14d2e00b</id>
 			<name>Synthetic Drone Leg</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>1</slots>
@@ -6880,7 +6880,7 @@
 		<mod>
 			<id>6a5c8efa-0f95-4298-a1b0-c84d569b3bfe</id>
 			<name>Immobile (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<bonus>
@@ -6896,7 +6896,7 @@
 		<mod>
 			<id>64414de4-2d0e-43b6-855f-469cbd878f6b</id>
 			<name>SkyGuide (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>0</slots>
@@ -6908,7 +6908,7 @@
 		<mod>
 			<id>b3ae9ac3-d846-4106-94b1-7a006ed89b7f</id>
 			<name>Spotlight (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>0</slots>
@@ -6920,7 +6920,7 @@
 		<mod>
 			<id>10f278e7-4172-4bbe-a247-598d043f72b6</id>
 			<name>Suspension (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>0</slots>
@@ -6932,7 +6932,7 @@
 		<mod>
 			<id>2579c17c-e682-462d-ae84-a441c48c943c</id>
 			<name>Tire Mod (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>0</rating>
 			<slots>0</slots>
@@ -6944,7 +6944,7 @@
 		<mod>
 			<id>ed241716-0d10-4493-83c6-aa141a854ec3</id>
 			<name>Pilot Program (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>6</rating>
 			<bonus>
@@ -6970,7 +6970,7 @@
 		<mod>
 			<id>17da9812-5264-4ac6-a31c-3e8b7ddb6212</id>
 			<name>Handling (Drone)</name>
-			<category>Handling</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>99</rating>
 			<minrating>Handling + 1</minrating>
@@ -6986,7 +6986,7 @@
 		<mod>
 			<id>4ee2420c-1fad-415a-83e3-7f9e72b5df11</id>
 			<name>Speed (Drone)</name>
-			<category>Speed</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>99</rating>
 			<minrating>Speed + 1</minrating>
@@ -7002,7 +7002,7 @@
 		<mod>
 			<id>426b1bb7-31ec-4656-aa89-332d6877e590</id>
 			<name>Acceleration (Drone)</name>
-			<category>Acceleration</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>99</rating>
 			<minrating>Acceleration + 1</minrating>
@@ -7018,7 +7018,7 @@
 		<mod>
 			<id>3ffae49d-1b3d-4214-95da-96a25f8a65f2</id>
 			<name>Fragile (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>99</rating>
 			<bonus>
@@ -7033,7 +7033,7 @@
 		<mod>
 			<id>dfa7cdcd-5d0e-4c9c-9f0b-90bf29ac5aff</id>
 			<name>Armor (Drone)</name>
-			<category>Armor</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>6</rating>
 			<bonus>
@@ -7049,13 +7049,13 @@
 		<mod>
 			<id>dd69f1cb-459b-4832-8675-fa8664dc76af</id>
 			<name>Armor Restricted (Drone)</name>
-			<category>Armor</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>12</rating>
 			<bonus>
 				<armor>Rating</armor>
 			</bonus>
-			<minrating>6</minrating>
+			<minrating>7</minrating>
 			<slots>Rating</slots>
 			<avail>RatingR</avail>
 			<cost>Rating * Body * 200</cost>
@@ -7065,13 +7065,13 @@
 		<mod>
 			<id>a3482baa-c2d9-4fab-8c58-c4bd5d2b6e35</id>
 			<name>Armor Forbidden(Drone)</name>
-			<category>Armor</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>99</rating>
 			<bonus>
 				<armor>Rating</armor>
 			</bonus>
-			<minrating>12</minrating>
+			<minrating>13</minrating>
 			<slots>Rating</slots>
 			<avail>RatingF</avail>
 			<cost>Rating * Body * 200</cost>
@@ -7081,7 +7081,7 @@
 		<mod>
 			<id>3389093b-869e-4a83-884e-05d2d439d41f</id>
 			<name>Sensor (Drone)</name>
-			<category>Sensor</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>8</rating>
 			<minrating>Sensor + 1</minrating>
@@ -7097,7 +7097,7 @@
 		<mod>
 			<id>9793f592-005c-4567-baeb-e725c0b49851</id>
 			<name>Single Sensor (Drone)</name>
-			<category>All</category>
+			<category>Drone</category>
 			<optionaldrone/>
 			<rating>99</rating>
 			<minrating>Sensor + 1</minrating>

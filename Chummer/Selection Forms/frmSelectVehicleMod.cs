@@ -38,6 +38,7 @@ namespace Chummer
 
 		private string _strAllowedCategories = "";
 		private bool _blnAddAgain = false;
+	    private bool _blnDrone = false;
 
 		private XmlDocument _objXmlDocument = new XmlDocument();
 		private readonly Character _objCharacter;
@@ -376,6 +377,29 @@ namespace Chummer
 			foreach (XmlNode objXmlMod in objXmlModList)
 			{
 				blnAdd = true;
+			    if (objXmlMod["tags"] != null && objXmlMod["tags"].InnerXml.Contains("mountmod"))
+			    {			        
+                    blnAdd = false;
+			    }
+
+			    if (!_objVehicle.IsDrone && objXmlMod["category"].InnerText == "Drone")
+			    {
+			        blnAdd = false;
+			    }
+			    if (_objVehicle.Armor >= 6)
+			    {
+			        if (_objVehicle.Armor >= 12)
+			        {
+			            if (objXmlMod["name"].InnerText == "Armor Restricted (Drone)")
+			            {
+			                blnAdd = false;
+			            }
+			        }
+                    if (objXmlMod["name"].InnerText == "Armor (Drone)")
+                    {
+                        blnAdd = false;
+                    }
+                }
 				/*
 				if (objXmlMod["response"] != null)
 				{
@@ -565,7 +589,7 @@ namespace Chummer
 					nudRating.Maximum = _objVehicle.Body;
 					nudRating.Minimum = 1;
 					nudRating.Enabled = true;
-					lblRatingLabel.Text = LanguageManager.Instance.GetString("Label_Body");
+					lblRatingLabel.Text = LanguageManager.Instance.GetString("Label_Rating");
 				}
 				//Used for Metahuman Adjustments.
 				else if (objXmlMod["rating"].InnerText.ToLower() == "seats")
@@ -580,8 +604,34 @@ namespace Chummer
 					if (Convert.ToInt32(objXmlMod["rating"].InnerText) > 0)
 					{
 						nudRating.Maximum = Convert.ToInt32(objXmlMod["rating"].InnerText);
-						nudRating.Minimum = 1;
-						nudRating.Enabled = true;
+					    if (objXmlMod["minrating"] != null)
+					    {
+					        if (objXmlMod["minrating"].InnerText.StartsWith("Handling + "))
+					        {
+                                nudRating.Minimum = Convert.ToInt32(objXmlMod["minrating"].InnerText.Substring(11, 1)) + _objVehicle.Handling;
+                            } else if (objXmlMod["minrating"].InnerText.StartsWith("Speed + "))
+					        {
+                                nudRating.Minimum = Convert.ToInt32(objXmlMod["minrating"].InnerText.Substring(8, 1)) + _objVehicle.Speed;
+                            } else if (objXmlMod["minrating"].InnerText.StartsWith("Acceleration + "))
+					        {
+                                nudRating.Minimum = Convert.ToInt32(objXmlMod["minrating"].InnerText.Substring(15, 1)) + _objVehicle.Accel;
+                            } else if (objXmlMod["minrating"].InnerText.StartsWith("Armor + "))
+					        {
+                                nudRating.Minimum = Convert.ToInt32(objXmlMod["minrating"].InnerText.Substring(8, 1)) + _objVehicle.Armor;
+                            } else if (objXmlMod["minrating"].InnerText.StartsWith("Sensor + "))
+					        {
+                                nudRating.Minimum = Convert.ToInt32(objXmlMod["minrating"].InnerText.Substring(9,1)) + _objVehicle.BaseSensor;
+                            }
+					        else
+					        {
+					            nudRating.Minimum = Convert.ToInt32(objXmlMod["minrating"].InnerText);
+					        }
+					    }
+					    else
+					    {
+					        nudRating.Minimum = 1;
+					    }
+					    nudRating.Enabled = true;
 						lblRatingLabel.Text = LanguageManager.Instance.GetString("Label_Rating");
 					}
 					else

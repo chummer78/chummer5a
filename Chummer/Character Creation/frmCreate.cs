@@ -6765,6 +6765,27 @@ namespace Chummer
                         }
                     }
                 }
+
+                //Delete Weapon Mount Mod
+                if (!blnFound)
+                {
+                    foreach (Vehicle objCharacterVehicle in _objCharacter.Vehicles)
+                    {
+                        foreach (VehicleMod objMod in objCharacterVehicle.Mods)
+                        {
+                            foreach (VehicleMod objModMod in objMod.Mods)
+                            {
+                                if (objModMod.InternalId == treVehicles.SelectedNode.Tag.ToString())
+                                {
+                                    objMod.Mods.Remove(objModMod);
+                                    treVehicles.SelectedNode.Remove();
+                                    blnFound = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             else if (treVehicles.SelectedNode.Level == 4)
             {
@@ -9059,7 +9080,7 @@ namespace Chummer
 
 			objFoundMod.Mods.Add(objMod);
 
-				objNode.ContextMenuStrip = cmsVehicle;
+			objNode.ContextMenuStrip = cmsVehicle;
 			treVehicles.SelectedNode.Nodes.Add(objNode);
 			treVehicles.SelectedNode.Expand();
 			RefreshSelectedVehicle();
@@ -9068,7 +9089,7 @@ namespace Chummer
 			UpdateWindowTitle();
 
 			if (frmPickVehicleMountMod.AddAgain)
-				tsVehicleAddMod_Click(sender, e);
+                tsVehicleMountAddModification_Click(sender, e);
 		}
 
 
